@@ -1,6 +1,6 @@
 ﻿namespace Network
 {
-    public class DummyProtocol : IPacketResponse
+    public class InstallationCoordinateRequestProtocolResponse : IPacketResponse
     {
         public byte[] GetResponse()
         {
