@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;  
 using System.Threading;  
 using System.Text;
+using Network;
 using UnityEngine;
 
 // リモートデバイスからデータを受信するためのステートオブジェクト。 
@@ -101,8 +102,7 @@ public class AsynchronousClient {
         try {  
             // 非同期ステートオブジェクトから、ステートオブジェクトとクライアントソケットを取得します。 
             StateObject state = (StateObject) ar.AsyncState;
-            var payload = state.buffer;
-            Console.WriteLine(string.Join(",",payload));
+            ResponseAnalysis.GetPacketResponse(state.buffer);
         } catch (Exception e) {  
             Debug.Log(e.ToString());  
         }  
