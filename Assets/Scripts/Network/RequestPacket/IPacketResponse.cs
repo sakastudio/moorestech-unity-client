@@ -1,4 +1,4 @@
-﻿namespace Network
+﻿namespace Network.RequestPacket
 {
     public interface IPacketResponse
     {
