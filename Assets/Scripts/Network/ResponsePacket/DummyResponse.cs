@@ -6,7 +6,6 @@ namespace Network.ResponsePacket
     {
         public static void AnalysisResponse(byte[] payload)
         {
-            //TODO 
         }
     }
 }

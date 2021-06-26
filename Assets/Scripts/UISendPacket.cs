@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Network;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +41,7 @@ public class UISendPacket : MonoBehaviour
         Guid.Empty.ToByteArray().ToList().ForEach(b => payload.Add(b));
         Guid.Empty.ToByteArray().ToList().ForEach(b => payload.Add(b));
         
-        AsynchronousClient.Send(payload.ToArray());
+        PacketHandler.SendMessages(payload.ToArray());
     }
 
     public void Get()
@@ -55,6 +56,6 @@ public class UISendPacket : MonoBehaviour
         BitConverter.GetBytes(int.Parse(GetX.text)).ToList().ForEach(b => payload.Add(b));
         BitConverter.GetBytes(int.Parse(GetY.text)).ToList().ForEach(b => payload.Add(b));
         
-        AsynchronousClient.Send(payload.ToArray());
+        PacketHandler.SendMessages(payload.ToArray());
     }
 }
