@@ -6,6 +6,8 @@ namespace Network.ResponsePacket
 {
     public static class InstallationCoordinateResponse
     {
+        public delegate void InstallationCoordinateResponseEvent(int x, int y, int id, Guid guid);
+        private static event InstallationCoordinateResponseEvent ResponseEvent;
         public static void AnalysisResponse(byte[] payload)
         {
             var responseAnalysis = new ByteArrayEnumerator(payload);
@@ -25,7 +27,13 @@ namespace Network.ResponsePacket
                 var guid = responseAnalysis.MoveNextToGetGuid();
                 
                 Debug.Log($"建物 ID:{id} 座標:({instX} ,{instY}) GUID:{guid}");
+                ResponseEvent(instX,instY,id,guid);
             }
+        }
+
+        public static void SubscribeEvent(InstallationCoordinateResponseEvent @event)
+        {
+            ResponseEvent += @event;
         }
     }
 }
