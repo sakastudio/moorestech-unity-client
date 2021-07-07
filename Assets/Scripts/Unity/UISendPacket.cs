@@ -37,8 +37,8 @@ public class UISendPacket : MonoBehaviour
         send.AddRange(ByteArrayConverter.ToByteArray((short)0));
         send.AddRange(ByteArrayConverter.ToByteArray(int.Parse(PutX.text)));
         send.AddRange(ByteArrayConverter.ToByteArray(int.Parse(PutY.text)));
-        send.AddRange(ByteArrayConverter.ToByteArray(Guid.Empty));
-        send.AddRange(ByteArrayConverter.ToByteArray(Guid.Empty));
+        send.AddRange(ByteArrayConverter.ToByteArray(Int32.MaxValue));
+        send.AddRange(ByteArrayConverter.ToByteArray(Int32.MaxValue));
         
         PacketHandler.SendMessages(send.ToArray());
     }

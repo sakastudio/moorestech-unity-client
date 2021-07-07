@@ -38,8 +38,8 @@ public class TileMapTest : MonoBehaviour
             send.AddRange(ByteArrayConverter.ToByteArray((short)0));
             send.AddRange(ByteArrayConverter.ToByteArray(tile.x));
             send.AddRange(ByteArrayConverter.ToByteArray(tile.y));
-            send.AddRange(ByteArrayConverter.ToByteArray(Guid.Empty));
-            send.AddRange(ByteArrayConverter.ToByteArray(Guid.Empty));
+            send.AddRange(ByteArrayConverter.ToByteArray(Int32.MaxValue));
+            send.AddRange(ByteArrayConverter.ToByteArray(Int32.MaxValue));
         
             PacketHandler.SendMessages(send.ToArray());
         }
@@ -81,7 +81,7 @@ public class TileMapTest : MonoBehaviour
         
         PacketHandler.SendMessages(payload.ToArray());
     }
-    void InstallationCoordinateResponseEvent(int x, int y, int id, Guid guid)
+    void InstallationCoordinateResponseEvent(int x, int y, int id, int intId)
     {
         _putReservationList.Add(new PutReservation(x,y,0));
     }

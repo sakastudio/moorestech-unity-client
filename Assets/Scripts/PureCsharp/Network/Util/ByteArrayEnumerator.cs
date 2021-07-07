@@ -12,18 +12,6 @@ namespace Network.Util
             _payload = payload.ToList().GetEnumerator();
         }
 
-        public Guid MoveNextToGetGuid()
-        {
-            var b = new List<byte>();
-            for (int i = 0; i < 16; i++)
-            {
-                _payload.MoveNext();
-                b.Add(_payload.Current);
-            }
-
-            return new Guid(b.ToArray());
-        }
-
         public int MoveNextToGetInt()
         {
             var b = new List<byte>();
