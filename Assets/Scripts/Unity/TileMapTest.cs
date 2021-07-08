@@ -44,12 +44,12 @@ public class TileMapTest : MonoBehaviour
             PacketHandler.SendMessages(send.ToArray());
         }
 
-        foreach (var putReservation in _putReservationList)
+        var i = 0;
+        while (0 < _putReservationList.Count)
         {
-            machinesTilemap.SetTile(new Vector3Int(putReservation.X,putReservation.Y,0),machinesTile);
+            machinesTilemap.SetTile(new Vector3Int(_putReservationList[0].X,_putReservationList[0].Y,0),machinesTile);
+            _putReservationList.RemoveAt(0);
         }
-
-        _putReservationList.Clear();
     }
 
     private void FixedUpdate()
