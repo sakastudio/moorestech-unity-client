@@ -28,7 +28,6 @@ namespace Network
             {
                 //Receiveで受信
                 var len = socket.Receive(bytes);
-                Debug.Log("データ受信 "+len+"バイト");
                 //解析を行う
                 ResponseAnalysis.GetPacketResponse(bytes);
             }
@@ -36,7 +35,6 @@ namespace Network
 
         public static void SendMessages(byte[] sendData)
         {
-            Debug.Log("データ送信 "+sendData.Length+"バイト");
             socket.Send(sendData);
         }
         

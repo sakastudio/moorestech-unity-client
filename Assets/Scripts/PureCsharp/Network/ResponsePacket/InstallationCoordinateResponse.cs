@@ -17,7 +17,6 @@ namespace Network.ResponsePacket
             responseAnalysis.MoveNextToGetShort();
             var chunkX = responseAnalysis.MoveNextToGetInt();
             var chunkY = responseAnalysis.MoveNextToGetInt();
-            Debug.Log($"チャンク座標 {chunkX} {chunkY}");
             //建物一覧を取得
             for (int i = 0; i < num; i++)
             {
