@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityCode.UI.UIObject;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,16 +8,16 @@ namespace UnityCode.UI
     public class UIDisplayOverallControl : MonoBehaviour
     {
          [SerializeField] private List<UIObjectData> uiObjectDataList;
-         private UIObjectData _openedUIObject;
+         private UIObjectData _openedUIObject = new UIObjectData();
         void Update()
         {
             //何かしらUIが開いていたら閉じるかどうかの判定処理
-            if (_openedUIObject.UIObject.IsShowUI())
+            if (_openedUIObject.uiObject.IsShowUI())
             {
                 //開かれているUIのキーが押されたら閉じる
-                if (Input.GetKeyDown(_openedUIObject.keyCode))
+                if (Input.GetKeyDown(_openedUIObject.keyCode) || Input.GetKeyDown(KeyCode.Escape))
                 {
-                    _openedUIObject.UIObject.HideUI();
+                    _openedUIObject.uiObject.HideUI();
                 }
             }
             //UIが開かれてなければ登録されているUIのどれかのキーが押されるまで待機
@@ -27,7 +28,7 @@ namespace UnityCode.UI
                     //特定のキーが押されていたらそのuiを開く
                     if (Input.GetKeyDown(uiObjectData.keyCode))
                     {
-                        uiObjectData.UIObject.ShowUI();
+                        uiObjectData.uiObject.ShowUI();
                         _openedUIObject = uiObjectData;
                         break;
                     }
@@ -40,8 +41,13 @@ namespace UnityCode.UI
     class UIObjectData
     {
         [Header("UIオブジェクト")]
-        public IUIObject UIObject;
+        public UIObjectBase uiObject;
         [Header("このキーを押したら開く")]
         public KeyCode keyCode;
+
+        public UIObjectData()
+        {
+            uiObject = new NullUIObject();
+        }
     }
 }
