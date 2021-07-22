@@ -9,13 +9,7 @@ public class StartPacketHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Thread thread = new Thread(new ThreadStart(PacketHandler.StartSocketClient));
+        Thread thread = new Thread(PacketHandler.StartSocketClient);
         thread.Start();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
