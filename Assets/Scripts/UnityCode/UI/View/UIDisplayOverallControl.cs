@@ -1,10 +1,12 @@
 using System.Collections.Generic;
-using UnityCode.UI.UIObject;
+using UnityCode.UI.View.UIObject;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace UnityCode.UI
+namespace UnityCode.UI.View
 {
+    /// <summary>
+    /// 全体的なUIのオンオフの制御を行う
+    /// </summary>
     public class UIDisplayOverallControl : MonoBehaviour
     {
          [SerializeField] private List<UIObjectData> uiObjectDataList;
