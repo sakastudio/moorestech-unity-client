@@ -1,16 +1,26 @@
+using System.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace UnityCode.UI.View.DragAndDrop
 {
     public class SlotUIClickDetector : MonoBehaviour,IPointerClickHandler
     {
         public delegate void SlotClick();
-
         public event SlotClick LeftSlotClick;
         public event SlotClick RightSlotClick;
         public event SlotClick MiddleSlotClick;
 
+        const int ExceptionNumber = -1;
+        
+        public int slotNumber = ExceptionNumber;
+
+        public void Constructor(int number)
+        {
+            slotNumber = number;
+        }
+        
         public void AddLeftClickEvent(SlotClick onClick)
         {
             LeftSlotClick += onClick;
@@ -41,6 +51,10 @@ namespace UnityCode.UI.View.DragAndDrop
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (slotNumber == ExceptionNumber)
+            {
+                throw new ConstraintException("初期化操作を実行していません。 The initialization operation has not been executed.");
+            }
             if (eventData.button == PointerEventData.InputButton.Left)
                 LeftSlotClick?.Invoke();
             else if (eventData.button == PointerEventData.InputButton.Middle)
