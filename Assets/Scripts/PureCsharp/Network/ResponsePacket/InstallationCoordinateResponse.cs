@@ -6,7 +6,7 @@ namespace Network.ResponsePacket
 {
     public static class InstallationCoordinateResponse
     {
-        public delegate void InstallationCoordinateResponseEvent(int x, int y, int id, Guid guid);
+        public delegate void InstallationCoordinateResponseEvent(int x, int y, int id, int intId);
         private static event InstallationCoordinateResponseEvent ResponseEvent;
         public static void AnalysisResponse(byte[] payload)
         {
@@ -17,17 +17,16 @@ namespace Network.ResponsePacket
             responseAnalysis.MoveNextToGetShort();
             var chunkX = responseAnalysis.MoveNextToGetInt();
             var chunkY = responseAnalysis.MoveNextToGetInt();
-            Debug.Log($"チャンク座標 {chunkX} {chunkY}");
             //建物一覧を取得
             for (int i = 0; i < num; i++)
             {
                 var instX = responseAnalysis.MoveNextToGetInt();
                 var instY = responseAnalysis.MoveNextToGetInt();
                 var id = responseAnalysis.MoveNextToGetInt();
-                var guid = responseAnalysis.MoveNextToGetGuid();
+                var intId = responseAnalysis.MoveNextToGetInt();
                 
-                Debug.Log($"建物 ID:{id} 座標:({instX} ,{instY}) GUID:{guid}");
-                ResponseEvent(instX,instY,id,guid);
+                Debug.Log($"建物 ID:{id} 座標:({instX} ,{instY}) intId:{intId}");
+                ResponseEvent(instX,instY,id,intId);
             }
         }
 
