@@ -8,17 +8,17 @@ namespace UnityCode.UI.View.DragAndDrop
     public class SlotUIClickDetector : MonoBehaviour,IPointerClickHandler
     {
         public delegate void SlotClick();
-        public event SlotClick LeftSlotClick;
-        public event SlotClick RightSlotClick;
-        public event SlotClick MiddleSlotClick;
+        private event SlotClick LeftSlotClick;
+        private event SlotClick RightSlotClick;
+        private event SlotClick MiddleSlotClick;
 
         const int ExceptionNumber = -1;
         
-        public int slotNumber = ExceptionNumber;
+        private int _slotNumber = ExceptionNumber;
 
         public void Constructor(int number)
         {
-            slotNumber = number;
+            _slotNumber = number;
         }
         
         public void AddLeftClickEvent(SlotClick onClick)
@@ -51,7 +51,7 @@ namespace UnityCode.UI.View.DragAndDrop
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (slotNumber == ExceptionNumber)
+            if (_slotNumber == ExceptionNumber)
             {
                 throw new ConstraintException("初期化操作を実行していません。 The initialization operation has not been executed.");
             }
