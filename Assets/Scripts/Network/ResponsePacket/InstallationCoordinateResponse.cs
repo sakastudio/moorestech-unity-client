@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Network.Util;
 using UnityEngine;
 
@@ -6,7 +7,8 @@ namespace Network.ResponsePacket
 {
     public static class InstallationCoordinateResponse
     {
-        public delegate void InstallationCoordinateResponseEvent(int x, int y, int id, int intId);
+        public const int DefaultChunkSize = 4;
+        public delegate void InstallationCoordinateResponseEvent(int[,] id, int[,] intId);
         private static event InstallationCoordinateResponseEvent ResponseEvent;
         public static void AnalysisResponse(byte[] payload)
         {
@@ -17,17 +19,19 @@ namespace Network.ResponsePacket
             responseAnalysis.MoveNextToGetShort();
             var chunkX = responseAnalysis.MoveNextToGetInt();
             var chunkY = responseAnalysis.MoveNextToGetInt();
+
+            var idList = new int[4,4];
+            var intIdList = new int[4,4];
             //建物一覧を取得
             for (int i = 0; i < num; i++)
             {
                 var instX = responseAnalysis.MoveNextToGetInt();
                 var instY = responseAnalysis.MoveNextToGetInt();
-                var id = responseAnalysis.MoveNextToGetInt();
-                var intId = responseAnalysis.MoveNextToGetInt();
+                idList[instX%DefaultChunkSize,instY%DefaultChunkSize] = responseAnalysis.MoveNextToGetInt();
+                intIdList[instX%DefaultChunkSize,instY%DefaultChunkSize] = responseAnalysis.MoveNextToGetInt();
                 
-                Debug.Log($"建物 ID:{id} 座標:({instX} ,{instY}) intId:{intId}");
-                ResponseEvent(instX,instY,id,intId);
             }
+            ResponseEvent(idList,intIdList);
         }
 
         public static void SubscribeEvent(InstallationCoordinateResponseEvent @event)
