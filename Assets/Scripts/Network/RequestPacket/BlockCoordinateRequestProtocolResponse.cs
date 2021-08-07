@@ -1,6 +1,6 @@
 ﻿namespace Network.RequestPacket
 {
-    public class InstallationCoordinateRequestProtocolResponse : IPacketResponse
+    public class BlockCoordinateRequestProtocolResponse : IPacketResponse
     {
         public byte[] GetResponse()
         {

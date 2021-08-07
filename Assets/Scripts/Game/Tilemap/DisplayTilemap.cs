@@ -14,7 +14,7 @@ namespace Game.Tilemap
 
         private void Start()
         {
-            InstallationCoordinateResponse.SubscribeEvent(InstallationCoordinateResponseEvent);
+            BlockCoordinateResponse.SubscribeEvent(InstallationCoordinateResponseEvent);
         }
 
         private void Update()
@@ -39,9 +39,9 @@ namespace Game.Tilemap
 
         void InstallationCoordinateResponseEvent(int[,] id, int[,] intId)
         {
-            for (int i = 0; i < InstallationCoordinateResponse.DefaultChunkSize; i++)
+            for (int i = 0; i < BlockCoordinateResponse.DefaultChunkSize; i++)
             {
-                for (int j = 0; j < InstallationCoordinateResponse.DefaultChunkSize; j++)
+                for (int j = 0; j < BlockCoordinateResponse.DefaultChunkSize; j++)
                 {
                     CoordinateDictionary.Add(
                         new Coordinate {x=i,y=j},

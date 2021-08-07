@@ -14,7 +14,7 @@ namespace Network
         private static void Init()
         {
             _packetResponseList.Add(DummyResponse.AnalysisResponse);
-            _packetResponseList.Add(InstallationCoordinateResponse.AnalysisResponse);
+            _packetResponseList.Add(BlockCoordinateResponse.AnalysisResponse);
         }
         
         public static void GetPacketResponse(byte[] payload)

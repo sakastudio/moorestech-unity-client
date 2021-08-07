@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace Network.ResponsePacket
 {
-    public static class InstallationCoordinateResponse
+    public static class BlockCoordinateResponse
     {
         public const int DefaultChunkSize = 4;
-        public delegate void InstallationCoordinateResponseEvent(int[,] id, int[,] intId);
-        private static event InstallationCoordinateResponseEvent ResponseEvent;
+        public delegate void BlockCoordinateResponseEvent(int[,] id, int[,] intId);
+        private static event BlockCoordinateResponseEvent ResponseEvent;
         public static void AnalysisResponse(byte[] payload)
         {
             var responseAnalysis = new ByteArrayEnumerator(payload);
@@ -34,7 +34,7 @@ namespace Network.ResponsePacket
             ResponseEvent(idList,intIdList);
         }
 
-        public static void SubscribeEvent(InstallationCoordinateResponseEvent @event)
+        public static void SubscribeEvent(BlockCoordinateResponseEvent @event)
         {
             ResponseEvent += @event;
         }
