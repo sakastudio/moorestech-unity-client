@@ -1,4 +1,4 @@
-namespace UnityCode.UI.View.UIObject
+namespace GUI.View.UIDisplayControl.UIObject
 {
     public class NullUIObject : UIObjectBase
     {

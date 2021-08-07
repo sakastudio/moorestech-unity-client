@@ -1,9 +1,8 @@
 using System.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
-namespace UnityCode.UI.View.DragAndDrop
+namespace GUI.View.DragAndDrop
 {
     public class SlotUIClickDetector : MonoBehaviour,IPointerClickHandler
     {

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using PureCsharp.Type;
 
-namespace PureCsharp.ViewModel.Inventory
+namespace GUI.ViewModel.Inventory
 {
     public interface IInventoryChangeNotify
     {

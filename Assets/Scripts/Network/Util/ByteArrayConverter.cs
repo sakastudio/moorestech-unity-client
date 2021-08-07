@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace industrialization.Server.Util
+namespace Network.Util
 {
     public static class ByteArrayConverter
     {

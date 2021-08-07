@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UnityCode.UI.View.UIObject
+namespace GUI.View.UIDisplayControl.UIObject
 {
     public abstract class UIObjectBase : MonoBehaviour 
     {

@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace UnityCode.Player
+namespace Game.Player
 {
     public class CameraTransformController : MonoBehaviour
     {

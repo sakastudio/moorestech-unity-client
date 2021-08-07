@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
 using Network;
 using UnityEngine;
 
-public class StartPacketHandler : MonoBehaviour
+namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class StartPacketHandler : MonoBehaviour
     {
-        Thread thread = new Thread(PacketHandler.StartSocketClient);
-        thread.Start();
+        // Start is called before the first frame update
+        void Start()
+        {
+            Thread thread = new Thread(PacketHandler.StartSocketClient);
+            thread.Start();
+        }
     }
 }

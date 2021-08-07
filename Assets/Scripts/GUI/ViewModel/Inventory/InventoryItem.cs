@@ -1,4 +1,4 @@
-﻿namespace PureCsharp.Type
+﻿namespace GUI.ViewModel.Inventory
 {
     public class InventoryItem
     {

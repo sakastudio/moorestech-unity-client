@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Network
 {
-    public class PacketHandler
+    public static class PacketHandler
     {
         private static Socket socket;
         public static void StartSocketClient()
