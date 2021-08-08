@@ -42,5 +42,16 @@ namespace Game.Player
             }
             transform.Translate(move * Time.deltaTime);
         }
+
+
+        private static CameraTransformController _instace;
+        public static CameraTransformController Instance
+        {
+            get
+            {
+                if (_instace == null) _instace = FindObjectOfType<CameraTransformController>();
+                return _instace;
+            }
+        }
     }
 }

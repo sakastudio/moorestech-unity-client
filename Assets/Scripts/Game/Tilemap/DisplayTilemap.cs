@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Player;
 using Network;
 using Network.ResponsePacket;
 using Network.Util;
@@ -9,8 +10,11 @@ namespace Game.Tilemap
 {
     public class DisplayTilemap : MonoBehaviour
     {
+        private const int DisplayRange = 8;
+        
         //座標がキーのデータストア
         private static readonly Dictionary<Coordinate,Block> CoordinateDictionary = new Dictionary<Coordinate, Block>();
+        private static readonly Dictionary<Coordinate,GameObject> GameObjectsDictionary = new Dictionary<Coordinate, GameObject>();
 
         private void Start()
         {
@@ -19,8 +23,28 @@ namespace Game.Tilemap
 
         private void Update()
         {
+            //リクエスト処理
+            var cam = CameraTransformController.Instance.transform.position;
+            int startChunkX = (Mathf.RoundToInt(cam.x)-
+                               DisplayRange )/
+                BlockCoordinateResponse.DefaultChunkSize * BlockCoordinateResponse.DefaultChunkSize;
+            int endChunkX = (Mathf.RoundToInt(cam.x)+
+                             DisplayRange )/
+                BlockCoordinateResponse.DefaultChunkSize * BlockCoordinateResponse.DefaultChunkSize;
+            int startChunkY = (Mathf.RoundToInt(cam.y)-
+                               DisplayRange )/
+                BlockCoordinateResponse.DefaultChunkSize * BlockCoordinateResponse.DefaultChunkSize;
+            int endChunkY = (Mathf.RoundToInt(cam.y)+
+                             DisplayRange )/
+                BlockCoordinateResponse.DefaultChunkSize * BlockCoordinateResponse.DefaultChunkSize;
+            for (int i = startChunkX; i < endChunkX; i+=BlockCoordinateResponse.DefaultChunkSize)
+            {
+                for (int j = startChunkY; j < endChunkY; j+=BlockCoordinateResponse.DefaultChunkSize)
+                {
+                    SendInstallationRequest(i, j);
+                }
+            }
             //TODO　表示処理
-            //TODO リクエスト処理
         }
         
         void SendInstallationRequest(int chunkX, int chunkY)
