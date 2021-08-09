@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Game.Tilemap
 {
+    //TODO この辺のタイルマップの処理をきちんと考える
     public class DisplayTilemap : MonoBehaviour
     {
         private const int DisplayRange = 8;
@@ -44,7 +45,14 @@ namespace Game.Tilemap
                     SendInstallationRequest(i, j);
                 }
             }
-            //TODO　表示処理
+            //表示処理
+            for (int i = Mathf.RoundToInt(cam.x) - DisplayRange; i < Mathf.RoundToInt(cam.x) + DisplayRange; i++)
+            {
+                for (int j = Mathf.RoundToInt(cam.x) - DisplayRange; j < Mathf.RoundToInt(cam.x) + DisplayRange; j++)
+                {
+                    var co = new Coordinate {x = i, y = j};
+                }
+            }
         }
         
         void SendInstallationRequest(int chunkX, int chunkY)
@@ -67,6 +75,7 @@ namespace Game.Tilemap
             {
                 for (int j = 0; j < BlockCoordinateResponse.DefaultChunkSize; j++)
                 {
+                    //TODO ここの座標修正
                     CoordinateDictionary.Add(
                         new Coordinate {x=i,y=j},
                         new Block {id=id[i,j],intId=intId[i,j]});
