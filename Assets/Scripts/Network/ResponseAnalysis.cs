@@ -5,9 +5,9 @@ using Network.ResponsePacket;
 
 namespace Network
 {
-    public class ResponseAnalysis
+    //TODO この辺の解析とかをインターフェースにしてテストコードを書く
+    public static class ResponseAnalysis
     {
-        public void Analysis(byte[] payload){}
         delegate void AnalysisResponse(byte[] payload);
         private static List<AnalysisResponse> _packetResponseList = new List<AnalysisResponse>();
 
