@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Game.Player;
 using Network;
-using Network.ResponsePacket;
+using Network.ReceivePacket;
 using Network.Util;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ namespace Game.Tilemap
 
         private void Start()
         {
-            BlockCoordinateResponse.SubscribeEvent(InstallationCoordinateResponseEvent);
+            BlockCoordinateReceive.SubscribeEvent(InstallationCoordinateResponseEvent);
         }
 
         private void Update()
@@ -28,19 +28,19 @@ namespace Game.Tilemap
             var cam = CameraTransformController.Instance.transform.position;
             int startChunkX = (Mathf.RoundToInt(cam.x)-
                                DisplayRange )/
-                BlockCoordinateResponse.DefaultChunkSize * BlockCoordinateResponse.DefaultChunkSize;
+                BlockCoordinateReceive.DefaultChunkSize * BlockCoordinateReceive.DefaultChunkSize;
             int endChunkX = (Mathf.RoundToInt(cam.x)+
                              DisplayRange )/
-                BlockCoordinateResponse.DefaultChunkSize * BlockCoordinateResponse.DefaultChunkSize;
+                BlockCoordinateReceive.DefaultChunkSize * BlockCoordinateReceive.DefaultChunkSize;
             int startChunkY = (Mathf.RoundToInt(cam.y)-
                                DisplayRange )/
-                BlockCoordinateResponse.DefaultChunkSize * BlockCoordinateResponse.DefaultChunkSize;
+                BlockCoordinateReceive.DefaultChunkSize * BlockCoordinateReceive.DefaultChunkSize;
             int endChunkY = (Mathf.RoundToInt(cam.y)+
                              DisplayRange )/
-                BlockCoordinateResponse.DefaultChunkSize * BlockCoordinateResponse.DefaultChunkSize;
-            for (int i = startChunkX; i < endChunkX; i+=BlockCoordinateResponse.DefaultChunkSize)
+                BlockCoordinateReceive.DefaultChunkSize * BlockCoordinateReceive.DefaultChunkSize;
+            for (int i = startChunkX; i < endChunkX; i+=BlockCoordinateReceive.DefaultChunkSize)
             {
-                for (int j = startChunkY; j < endChunkY; j+=BlockCoordinateResponse.DefaultChunkSize)
+                for (int j = startChunkY; j < endChunkY; j+=BlockCoordinateReceive.DefaultChunkSize)
                 {
                     SendInstallationRequest(i, j);
                 }
@@ -71,9 +71,9 @@ namespace Game.Tilemap
 
         void InstallationCoordinateResponseEvent(int[,] id, int[,] intId)
         {
-            for (int i = 0; i < BlockCoordinateResponse.DefaultChunkSize; i++)
+            for (int i = 0; i < BlockCoordinateReceive.DefaultChunkSize; i++)
             {
-                for (int j = 0; j < BlockCoordinateResponse.DefaultChunkSize; j++)
+                for (int j = 0; j < BlockCoordinateReceive.DefaultChunkSize; j++)
                 {
                     //TODO ここの座標修正
                     CoordinateDictionary.Add(

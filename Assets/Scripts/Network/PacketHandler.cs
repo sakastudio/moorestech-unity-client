@@ -29,7 +29,7 @@ namespace Network
                 //Receiveで受信
                 var len = socket.Receive(bytes);
                 //解析を行う
-                ResponseAnalysis.GetPacketResponse(bytes);
+                ReceivePacketAnalysis.Analysis(bytes);
             }
         }
 

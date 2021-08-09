@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Network.Util;
-using UnityEngine;
+﻿using Network.Util;
 
-namespace Network.ResponsePacket
+namespace Network.ReceivePacket
 {
-    public static class BlockCoordinateResponse
+    public static class BlockCoordinateReceive
     {
         public const int DefaultChunkSize = 4;
         public delegate void BlockCoordinateResponseEvent(int[,] id, int[,] intId);
-        private static event BlockCoordinateResponseEvent ResponseEvent;
+        private static event BlockCoordinateResponseEvent ReceiveEvent;
         public static void AnalysisResponse(byte[] payload)
         {
             var responseAnalysis = new ByteArrayEnumerator(payload);
@@ -31,12 +28,17 @@ namespace Network.ResponsePacket
                 intIdList[instX%DefaultChunkSize,instY%DefaultChunkSize] = responseAnalysis.MoveNextToGetInt();
                 
             }
-            ResponseEvent(idList,intIdList);
+
+            if (ReceiveEvent != null) ReceiveEvent(idList, intIdList);
         }
 
         public static void SubscribeEvent(BlockCoordinateResponseEvent @event)
         {
-            ResponseEvent += @event;
+            ReceiveEvent += @event;
+        }
+        public static void UnSubscribeEvent(BlockCoordinateResponseEvent @event)
+        {
+            ReceiveEvent -= @event;
         }
     }
 }

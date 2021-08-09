@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Network.ResponsePacket
+﻿namespace Network.ReceivePacket
 {
-    public static class DummyResponse
+    public static class DummyReceive
     {
         public static void AnalysisResponse(byte[] payload)
         {
