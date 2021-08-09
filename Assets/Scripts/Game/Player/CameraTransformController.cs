@@ -46,34 +46,43 @@ namespace Game.Player
             transform.Translate(move * Time.deltaTime);
         }
 
-        private const int CameraChunkSize = 50; 
-        [SerializeField] private int CameraChunkX = 0;
-        [SerializeField] private int CameraChunkY = 0;
+        private const int CameraChunkSize = 50;
+        [SerializeField]private Vector3 CameraChunk = Vector3.zero;
         void LoopCamera()
         {
             //X loop
             if (CameraChunkSize < transform.position.x)
             {
-                CameraChunkX++;
+                CameraChunk.x++;
                 transform.position = new Vector3(-CameraChunkSize, transform.position.y);
             }
             if (transform.position.x < -CameraChunkSize)
             {
-                CameraChunkX--;
+                CameraChunk.x--;
                 transform.position = new Vector3(CameraChunkSize, transform.position.y);
             }
             
             //Y loop
             if (CameraChunkSize < transform.position.y)
             {
-                CameraChunkY++;
+                CameraChunk.y++;
                 transform.position = new Vector3(transform.position.x, -CameraChunkSize);
             }
             if (transform.position.y < -CameraChunkSize)
             {
-                CameraChunkY--;
+                CameraChunk.y--;
                 transform.position = new Vector3(transform.position.x, CameraChunkSize);
             }
+        }
+
+        public Vector3 GetCameraPosition()
+        {
+            return transform.position + CameraChunk * CameraChunkSize * 2;
+        }
+
+        public Vector2 GetCameraChunk()
+        {
+            return CameraChunk;
         }
 
 
