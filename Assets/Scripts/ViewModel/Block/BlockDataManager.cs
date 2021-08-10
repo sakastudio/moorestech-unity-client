@@ -1,14 +1,27 @@
 using System;
 using System.Collections.Generic;
+using Network;
 using UnityEngine;
 
-namespace GUI.ViewModel.Block
+namespace ViewModel.Block
 {
     public class BlockDataManager
     {
         private static readonly Dictionary<Coordinate,Block> CoordinateDictionary = new Dictionary<Coordinate, Block>();
         public int[,] GetBlocks(Vector2Int start,Vector2Int end)
         {
+            SendBlockRequestPacket(start, end);
+            return CollectBlockData(start, end);
+        }
+
+        private void SendBlockRequestPacket(Vector2Int start,Vector2Int end)
+        {
+            
+        }
+        
+        private int[,] CollectBlockData(Vector2Int start,Vector2Int end)
+        {
+            
             var xSize = Math.Abs(start.x - end.x);
             var ySize = Math.Abs(start.y - end.y);
             var blocks = new int[xSize,ySize];
@@ -29,6 +42,7 @@ namespace GUI.ViewModel.Block
             }
             return blocks;
         }
+        
         
         
         
