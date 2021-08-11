@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Const;
 using Network;
+using Network.Util;
 using UnityEngine;
 
 namespace ViewModel.Block
