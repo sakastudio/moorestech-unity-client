@@ -1,10 +1,10 @@
-﻿using Network.Util;
+﻿using Const;
+using Network.Util;
 
 namespace Network.ReceivePacket
 {
     public static class BlockCoordinateReceive
     {
-        public const int DefaultChunkSize = 4;
         public delegate void BlockCoordinateResponseEvent(int[,] id, int[,] intId);
         private static event BlockCoordinateResponseEvent ReceiveEvent;
         public static void AnalysisResponse(byte[] payload)
@@ -24,8 +24,8 @@ namespace Network.ReceivePacket
             {
                 var instX = responseAnalysis.MoveNextToGetInt();
                 var instY = responseAnalysis.MoveNextToGetInt();
-                idList[instX%DefaultChunkSize,instY%DefaultChunkSize] = responseAnalysis.MoveNextToGetInt();
-                intIdList[instX%DefaultChunkSize,instY%DefaultChunkSize] = responseAnalysis.MoveNextToGetInt();
+                idList[instX%ConstData.DefaultChunkSize,instY%ConstData.DefaultChunkSize] = responseAnalysis.MoveNextToGetInt();
+                intIdList[instX%ConstData.DefaultChunkSize,instY%ConstData.DefaultChunkSize] = responseAnalysis.MoveNextToGetInt();
                 
             }
 
