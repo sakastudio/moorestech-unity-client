@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
-using Const;
 using Network;
 using Network.Util;
 using UnityEngine;
+using Util.Block;
 
 namespace ViewModel.Block
 {
     public class BlockDataManager
     {
-        private static readonly Dictionary<Coordinate,Block> CoordinateDictionary = new Dictionary<Coordinate, Block>();
+        private static readonly Dictionary<Coordinate,BlockData> CoordinateDictionary = new Dictionary<Coordinate, BlockData>();
         public int[,] GetBlocks(Vector2Int start,Vector2Int end)
         {
             SendBlockRequestPacket(start, end);
@@ -71,20 +71,6 @@ namespace ViewModel.Block
                 }
             }
             return blocks;
-        }
-        
-        
-        
-        
-        private struct Coordinate
-        {
-            public int x;
-            public int y;
-        }
-        private struct Block
-        {
-            public int id;
-            public int intId;
         }
     }
 }

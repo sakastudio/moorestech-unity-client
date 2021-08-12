@@ -1,4 +1,4 @@
-﻿namespace Const
+﻿namespace Util.Block
 {
     public static class ConstData
     {

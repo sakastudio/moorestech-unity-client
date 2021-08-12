@@ -1,5 +1,5 @@
-﻿using Const;
-using Network.Util;
+﻿using Network.Util;
+using Util.Block;
 
 namespace Network.ReceivePacket
 {
