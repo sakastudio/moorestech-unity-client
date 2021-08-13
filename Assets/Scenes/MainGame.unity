@@ -349,8 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraSpeed: 4
   SprintMagnification: 4
-  CameraChunkX: 0
-  CameraChunkY: 0
+  CameraChunk: {x: 0, y: 0, z: 0}
 --- !u!1 &134425021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,7 +1184,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519201089}
-  - component: {fileID: 519201090}
   m_Layer: 0
   m_Name: Blocks
   m_TagString: Untagged
@@ -1207,18 +1205,6 @@ Transform:
   m_Father: {fileID: 551585512}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519201090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519201088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c9b37779e964643b65eedf5129ea7b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &551585511
 GameObject:
   m_ObjectHideFlags: 0
@@ -4768,7 +4754,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1948364061}
-  - component: {fileID: 1948364060}
   m_Layer: 0
   m_Name: GameSystem
   m_TagString: Untagged
@@ -4776,18 +4761,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1948364060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948364059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a621ee6a6d799a43bdc9ca6faa2e712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1948364061
 Transform:
   m_ObjectHideFlags: 0
