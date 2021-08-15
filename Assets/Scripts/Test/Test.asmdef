@@ -1,3 +1,19 @@
 {
-	"name": "Test"
+    "name": "Test",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8193f5dc746fa214a8c01d411da2df77",
+        "GUID:4a6660e4074de0c41a19a9d71c09d445",
+        "GUID:eba678d0b90c4dd419adc1993e4ee0b7",
+        "GUID:5b3e4327ac81a2841b7c7674f7580ef6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
