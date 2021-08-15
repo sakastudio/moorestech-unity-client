@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GUI.View.DragAndDrop
+namespace View.GUI.DragAndDrop
 {
     public class DragAndDropUIObjectManager : MonoBehaviour
     {

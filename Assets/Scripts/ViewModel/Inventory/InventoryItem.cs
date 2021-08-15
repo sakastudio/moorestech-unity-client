@@ -1,4 +1,4 @@
-﻿namespace GUI.ViewModel.Inventory
+﻿namespace ViewModel.Inventory
 {
     public class InventoryItem
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace GUI.View.DragAndDrop.Util
+namespace View.GUI.DragAndDrop.Util
 {
     public class SlotUIMouseHover : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     {
