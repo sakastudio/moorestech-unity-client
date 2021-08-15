@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Util
 {
@@ -15,13 +16,11 @@ namespace Util
                     var result = FindObjectsOfType<T>();
                     if (result.Length == 0)
                     {
-                        Debug.LogError($"{typeof(T).Name}はシーンに存在しません");
-                        return null;
+                        throw new Exception($"{typeof(T).Name}はシーンに存在しません");
                     }
                     if (result.Length <= 2)
                     {
-                        Debug.LogError($"{typeof(T).Name}はシーンに2以上存在しています");
-                        return null;
+                        throw new Exception($"{typeof(T).Name}はシーンに2以上存在しています");
                     }
                     _instance = result[0];
                 }
