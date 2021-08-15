@@ -2,7 +2,7 @@ using System.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace GUI.View.DragAndDrop
+namespace View.GUI.DragAndDrop
 {
     public class SlotUIClickDetector : MonoBehaviour,IPointerClickHandler
     {

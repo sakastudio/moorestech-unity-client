@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using GUI.View.UIDisplayControl.UIObject;
 using UnityEngine;
+using View.GUI.UIDisplayControl.UIObject;
 
-namespace GUI.View.UIDisplayControl
+namespace View.GUI.UIDisplayControl
 {
     /// <summary>
     /// 全体的なUIのオンオフの制御を行う

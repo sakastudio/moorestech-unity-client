@@ -1,4 +1,4 @@
-namespace GUI.View.UIDisplayControl.UIObject
+namespace View.GUI.UIDisplayControl.UIObject
 {
     public class GeneralUIObject : UIObjectBase
     {

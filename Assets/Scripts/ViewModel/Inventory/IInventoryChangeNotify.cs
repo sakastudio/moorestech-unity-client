@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GUI.ViewModel.Inventory
+namespace ViewModel.Inventory
 {
     public interface IInventoryChangeNotify
     {

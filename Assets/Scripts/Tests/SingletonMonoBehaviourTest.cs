@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using Util;
 
-namespace Tests.Singleton
+namespace Tests
 {
     public class SingletonMonoBehaviourTest
     {
