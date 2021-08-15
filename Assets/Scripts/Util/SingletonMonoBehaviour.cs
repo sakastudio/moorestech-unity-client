@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Util
@@ -18,8 +19,9 @@ namespace Util
                     {
                         throw new Exception($"{typeof(T).Name}はシーンに存在しません");
                     }
-                    if (result.Length <= 2)
+                    if (result.Length != 1)
                     {
+                        result.ToList().ForEach(r => Debug.LogError(r.name));
                         throw new Exception($"{typeof(T).Name}はシーンに2以上存在しています");
                     }
                     _instance = result[0];
