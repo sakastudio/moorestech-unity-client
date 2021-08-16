@@ -1,8 +1,9 @@
 using UnityEngine;
+using Util;
 
 namespace View.Game.Player
 {
-    public class CameraTransformController : MonoBehaviour
+    public class CameraTransformController : SingletonMonoBehaviour<CameraTransformController>
     {
         private Rigidbody2D _rigidbody2D;
         [SerializeField] private int CameraSpeed = 4;
