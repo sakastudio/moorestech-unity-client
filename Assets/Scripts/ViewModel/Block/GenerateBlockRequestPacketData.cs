@@ -21,9 +21,9 @@ namespace ViewModel.Block
             
             
             var result =  new List<byte[]>();
-            for (int i = startChunkX; i < endChunkX; i+=ConstData.DefaultChunkSize)
+            for (int i = startChunkX; i <= endChunkX; i+=ConstData.DefaultChunkSize)
             {
-                for (int j = startChunkY; j < endChunkY; j+=ConstData.DefaultChunkSize)
+                for (int j = startChunkY; j <= endChunkY; j+=ConstData.DefaultChunkSize)
                 {
                     result.Add(GenerateByteArray(i, j));
                 }
