@@ -4,7 +4,7 @@ using Util;
 
 namespace Network
 {
-    public class StartServer : SingletonMonoBehaviour<StartServer>
+    public class StartServerCommunication : SingletonMonoBehaviour<StartServerCommunication>
     {
         // Start is called before the first frame update
         void Start()
