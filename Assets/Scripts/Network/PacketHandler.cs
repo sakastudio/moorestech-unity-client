@@ -40,9 +40,9 @@ namespace Network
             if (socket == null)
             {
                 var responses = PacketResponseFactory.GetPacketResponse(sendData);
-                for (int i = 0; i < responses.GetLength(0); i++)
+                foreach (var t in responses)
                 {
-                    ReceivePacketAnalysis.Analysis(responses[i]);
+                    ReceivePacketAnalysis.Analysis(t);
                 }
                 return;
             }
