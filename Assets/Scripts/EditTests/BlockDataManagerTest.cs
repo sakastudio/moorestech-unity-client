@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using Util.Block;
 using ViewModel.Block;
 
-namespace Tests
+namespace EditTests
 {
     public class BlockDataManagerTest
     {
