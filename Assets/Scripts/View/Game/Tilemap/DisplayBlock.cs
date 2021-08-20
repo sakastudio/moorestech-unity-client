@@ -15,10 +15,10 @@ namespace View.Game.Tilemap
 
         private void Start()
         {
-            blockObjects = new GameObject[_displayBlockRange.x * 2, _displayBlockRange.y * 2];
+            blockObjects = new GameObject[_displayBlockRange.x * 2 + 1, _displayBlockRange.y * 2 + 1];
             for (int i = 0; i < blockObjects.GetLength(0); i++)
             {
-                for (int j = 0; j < blockObjects.GetLength(0); j++)
+                for (int j = 0; j < blockObjects.GetLength(1); j++)
                 {
                     blockObjects[i, j] = Instantiate(blockTilePrefab,transform);
                     blockObjects[i, j].SetActive(false);
@@ -38,11 +38,11 @@ namespace View.Game.Tilemap
                 {
                     if (blocks[i,j] == -1)
                     {
-                        blockObjects[i, j].SetActive(true);
-                        blockObjects[i, j].transform.position = new Vector2(i, j) - cameraPos;
-                        break;
+                        blockObjects[i, j].SetActive(false);
+                        continue;
                     }
-                    blockObjects[i, j].SetActive(false);
+                    blockObjects[i, j].SetActive(true);
+                    blockObjects[i, j].transform.position = new Vector2(i, j) - cameraPos;
                 }
             }
         }
