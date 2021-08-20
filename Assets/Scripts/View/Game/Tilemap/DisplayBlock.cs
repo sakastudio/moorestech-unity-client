@@ -28,7 +28,7 @@ namespace View.Game.Tilemap
 
         private void FixedUpdate()
         {
-            var p = CameraTransformController.Instance.transform.position;
+            var p = CameraTransformController.Instance.GetCameraPosition();
             Vector2Int cameraPos = new Vector2Int(Mathf.RoundToInt(p.x), Mathf.RoundToInt(p.y));
             var blocks = BlockDataManager.Instance.GetBlocks(cameraPos - _displayBlockRange, cameraPos + _displayBlockRange);
 
