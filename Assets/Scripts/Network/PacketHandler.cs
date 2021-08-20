@@ -1,8 +1,5 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using industrialization.Server.PacketResponse;
 using UnityEngine;
 
 namespace Network
@@ -36,20 +33,8 @@ namespace Network
 
         public static void SendMessages(byte[] sendData)
         {
-            //socketがない場合、内部のサーバーのロジックに疑似敵に送信する
-            if (socket == null)
-            {
-                var responses = PacketResponseFactory.GetPacketResponse(sendData);
-                foreach (var t in responses)
-                {
-                    ReceivePacketAnalysis.Analysis(t);
-                }
-                return;
-            }
-            
             //接続されてる場合普通に送信
             socket.Send(sendData);
-            
         }
         
     }

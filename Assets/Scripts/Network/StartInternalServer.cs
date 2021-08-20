@@ -1,5 +1,4 @@
 ﻿using System;
-using industrialization.Core.GameSystem;
 using Util;
 
 namespace Network
@@ -8,7 +7,7 @@ namespace Network
     {
         public void FixedUpdate()
         {
-            GameUpdate.Update();
+            //GameUpdate.Update();
         }
     }
 }
