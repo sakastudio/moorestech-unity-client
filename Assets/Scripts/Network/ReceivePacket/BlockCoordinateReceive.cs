@@ -26,9 +26,12 @@ namespace Network.ReceivePacket
                 var instY = responseAnalysis.MoveNextToGetInt();
                 var blockId = responseAnalysis.MoveNextToGetInt();
                 var intId = responseAnalysis.MoveNextToGetInt();
+
+                var c = new Coordinate {x = instX, y = instY};
+                if(blockData.ContainsKey(c)) continue;
                 
                 blockData.Add(
-                    new Coordinate{x = instX,y = instY},
+                    c,
                     new BlockData{id = blockId,intId = intId}
                 );
             }

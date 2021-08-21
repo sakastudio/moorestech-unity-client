@@ -80,6 +80,10 @@ namespace View.Game.Player
         {
             return transform.position + CameraChunk * CameraChunkSize * 2;
         }
+        public Vector3 World2CameraPosition(Vector3 position)
+        {
+            return position + CameraChunk * CameraChunkSize * 2;
+        }
 
         public Vector2 GetCameraChunk()
         {
