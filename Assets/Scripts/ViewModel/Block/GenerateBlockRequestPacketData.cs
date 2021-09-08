@@ -6,7 +6,7 @@ using Util.Block;
 
 namespace ViewModel.Block
 {
-    internal static class GenerateBlockRequestPacketData
+    public static class GenerateBlockRequestPacketData
     {
         public static List<byte[]> Generate(Vector2Int start,Vector2Int end)
         {
@@ -21,9 +21,9 @@ namespace ViewModel.Block
             
             
             var result =  new List<byte[]>();
-            for (int i = startChunkX; i < endChunkX; i+=ConstData.DefaultChunkSize)
+            for (int i = startChunkX; i <= endChunkX; i+=ConstData.DefaultChunkSize)
             {
-                for (int j = startChunkY; j < endChunkY; j+=ConstData.DefaultChunkSize)
+                for (int j = startChunkY; j <= endChunkY; j+=ConstData.DefaultChunkSize)
                 {
                     result.Add(GenerateByteArray(i, j));
                 }
@@ -31,7 +31,7 @@ namespace ViewModel.Block
             
             return result;
         }
-        static byte[] GenerateByteArray(int chunkX, int chunkY)
+        public static byte[] GenerateByteArray(int chunkX, int chunkY)
         {
             var payload = new List<byte>();
             //パケットIDの挿入

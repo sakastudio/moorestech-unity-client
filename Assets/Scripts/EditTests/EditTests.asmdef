@@ -1,5 +1,5 @@
 {
-    "name": "Tests",
+    "name": "EditTests",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
@@ -9,7 +9,9 @@
         "View",
         "ViewModel"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,

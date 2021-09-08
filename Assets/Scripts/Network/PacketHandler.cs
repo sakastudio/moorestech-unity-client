@@ -1,7 +1,5 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using UnityEngine;
 
 namespace Network
@@ -35,6 +33,7 @@ namespace Network
 
         public static void SendMessages(byte[] sendData)
         {
+            //接続されてる場合普通に送信
             socket.Send(sendData);
         }
         

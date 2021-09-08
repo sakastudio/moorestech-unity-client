@@ -38,24 +38,22 @@ namespace ViewModel.Block
                 for (int j = startChunk.x; j < startChunk.x + ConstData.DefaultChunkSize; j++)
                 {
                     var c = new Coordinate {x = i, y = j};
-                    BlockData insert;
                     if (blockData.ContainsKey(c))
                     {
-                        insert = blockData[c];
+                        if (CoordinateDictionary.ContainsKey(c))
+                        {
+                            CoordinateDictionary[c] = blockData[c];
+                        }
+                        else
+                        {
+                            CoordinateDictionary.Add(c,blockData[c]);
+                        }
                     }
                     else
                     {
-                        insert = new BlockData {id = -1, intId = Int32.MinValue};
+                        CoordinateDictionary.Remove(c);
                     }
                     
-                    if (CoordinateDictionary.ContainsKey(c))
-                    {
-                        blockData[c] = insert;
-                    }
-                    else
-                    {
-                        blockData.Add(c,insert);
-                    }
                 }
             }
         }

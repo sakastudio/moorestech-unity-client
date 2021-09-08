@@ -1,0 +1,3 @@
+[submodule "Assets/Scripts/InternalServer"]
+	path = Assets/Scripts/InternalServer
+	url = https://github.com/sakastudio/industrialization.git

@@ -1,8 +1,9 @@
 using UnityEngine;
+using Util;
 
 namespace View.Game.Player
 {
-    public class CameraTransformController : MonoBehaviour
+    public class CameraTransformController : SingletonMonoBehaviour<CameraTransformController>
     {
         private Rigidbody2D _rigidbody2D;
         [SerializeField] private int CameraSpeed = 4;
@@ -78,6 +79,10 @@ namespace View.Game.Player
         public Vector3 GetCameraPosition()
         {
             return transform.position + CameraChunk * CameraChunkSize * 2;
+        }
+        public Vector3 World2CameraPosition(Vector3 position)
+        {
+            return position + CameraChunk * CameraChunkSize * 2;
         }
 
         public Vector2 GetCameraChunk()

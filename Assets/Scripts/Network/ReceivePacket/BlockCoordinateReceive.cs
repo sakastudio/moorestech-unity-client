@@ -26,13 +26,25 @@ namespace Network.ReceivePacket
                 var instY = responseAnalysis.MoveNextToGetInt();
                 var blockId = responseAnalysis.MoveNextToGetInt();
                 var intId = responseAnalysis.MoveNextToGetInt();
+
+                var c = new Coordinate {x = instX, y = instY};
+                if(blockData.ContainsKey(c)) continue;
                 
                 blockData.Add(
-                    new Coordinate{x = instX,y = instY},
+                    c,
                     new BlockData{id = blockId,intId = intId}
                 );
             }
 
+            if (blockData.Count <= 0)
+            {
+                //TODO ここのマジックナンバーの解決
+                blockData.Add(
+                    new Coordinate{x = chunkX,y = chunkY},
+                    new BlockData{id = -1,intId = -1}
+                );
+            }
+            
             if (ReceiveEvent != null) ReceiveEvent(blockData);
         }
 

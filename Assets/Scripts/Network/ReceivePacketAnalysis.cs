@@ -4,7 +4,6 @@ using Network.ReceivePacket;
 
 namespace Network
 {
-    //TODO この辺の解析とかをインターフェースにしてテストコードを書く
     public static class ReceivePacketAnalysis
     {
         delegate void PacketAnalysis(byte[] payload);
