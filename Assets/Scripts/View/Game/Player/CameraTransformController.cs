@@ -26,11 +26,11 @@ namespace View.Game.Player
             var move = Vector3.zero;
             if (Input.GetKey(KeyCode.W))
             {
-                move.y = CameraSpeed;
+                move.z = CameraSpeed;
             }
             if (Input.GetKey(KeyCode.S))
             {
-                move.y = -CameraSpeed;
+                move.z = -CameraSpeed;
             }
             if (Input.GetKey(KeyCode.A))
             {
@@ -55,24 +55,24 @@ namespace View.Game.Player
             if (CameraChunkSize < transform.position.x)
             {
                 CameraChunk.x++;
-                transform.position = new Vector3(-CameraChunkSize, transform.position.y);
+                transform.position = new Vector3(-CameraChunkSize,0, transform.position.z);
             }
             if (transform.position.x < -CameraChunkSize)
             {
                 CameraChunk.x--;
-                transform.position = new Vector3(CameraChunkSize, transform.position.y);
+                transform.position = new Vector3(CameraChunkSize,0, transform.position.z);
             }
             
             //Y loop
-            if (CameraChunkSize < transform.position.y)
+            if (CameraChunkSize < transform.position.z)
             {
-                CameraChunk.y++;
-                transform.position = new Vector3(transform.position.x, -CameraChunkSize);
+                CameraChunk.z++;
+                transform.position = new Vector3(transform.position.x,0, -CameraChunkSize);
             }
-            if (transform.position.y < -CameraChunkSize)
+            if (transform.position.z < -CameraChunkSize)
             {
-                CameraChunk.y--;
-                transform.position = new Vector3(transform.position.x, CameraChunkSize);
+                CameraChunk.z--;
+                transform.position = new Vector3(transform.position.x,0, CameraChunkSize);
             }
         }
 

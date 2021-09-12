@@ -42,7 +42,7 @@ namespace View.Game.Tilemap
                         continue;
                     }
                     blockObjects[i, j].SetActive(true);
-                    blockObjects[i, j].transform.position = new Vector2(i, j) - cameraPos;
+                    blockObjects[i, j].transform.position = new Vector3(i, 0.5f,j) - new Vector3(cameraPos.x,0,cameraPos.y);
                 }
             }
         }

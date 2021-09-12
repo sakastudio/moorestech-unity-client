@@ -13,7 +13,7 @@ namespace View.Game.Player
             {
                 var click = CameraTransformController.Instance.World2CameraPosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 var clickBlockPos = new Vector2Int(Mathf.RoundToInt(click.x), Mathf.RoundToInt(click.y));
-                PutBlockProcess.SendPutBlock(clickBlockPos,0);
+               // PutBlockProcess.SendPutBlock(clickBlockPos,0);
             }
         }
     }
